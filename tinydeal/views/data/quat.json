@@ -1,0 +1,45 @@
+{
+    "Content": "Quạt",
+    "List": [
+        {
+            "ID": 1,
+            "Title": "Bán quạt hơi nước Sunhouse",
+            "Link": "https://www.chotot.com//mua-ban-quat-quan-le-chan-hai-phong/118925059.htm",
+            "Image URL": "https://cdn.chotot.com/D3Qce56-rNgvmuTSYos008OJrS3LUiY3iWLg-qiCdTg/preset:listing/plain/b9ac513f3c15da6f271aebb9771d451e-2893216974595196573.jpg",
+            "Price": "1.150.000 đ",
+            "Location": "Hải Phòng"
+        },
+        {
+            "ID": 2,
+            "Title": "Quạt hơi nước",
+            "Link": "https://www.chotot.com//mua-ban-quat-quan-go-vap-tp-ho-chi-minh/119157354.htm",
+            "Image URL": "https://cdn.chotot.com/jb6Tzfc_ZN24tbCuaNvyW0Y1eS4kOA2GJfpXQvwaglE/preset:listing/plain/c2bf439a7979ea8bf23391f7912cfd4d-2894774205567419185.jpg",
+            "Price": "600.000 đ",
+            "Location": "Tp Hồ Chí Minh"
+        },
+        {
+            "ID": 3,
+            "Title": "toshiba gang sắt nhật nguyên zin đẹp",
+            "Link": "https://www.chotot.com//mua-ban-quat-quan-hai-an-hai-phong/118631519.htm",
+            "Image URL": "https://cdn.chotot.com/2raRGiyDvq5NVxPJIcDPglzdp5IXeaYEk7O8m8WcxLI/preset:listing/plain/1278b98782133f1d66a0c4ae189f835e-2891590854915692849.jpg",
+            "Price": "2.850.000 đ",
+            "Location": "Hải Phòng"
+        },
+        {
+            "ID": 4,
+            "Title": "Quat xin AsiA gia rẽ còn đep",
+            "Link": "https://www.chotot.com//mua-ban-quat-quan-tan-binh-tp-ho-chi-minh/119157146.htm",
+            "Image URL": "https://cdn.chotot.com/aG31UU_NWZ4YJmVjPWf0CulBQZvVnlkLa_AaXNgN4A8/preset:listing/plain/57bfa9ed2497a99ce4358a785470f657-2894773056516193602.jpg",
+            "Price": "120.000 đ",
+            "Location": "Tp Hồ Chí Minh"
+        },
+        {
+            "ID": 5,
+            "Title": "Quạt hơi nước Kangaroo KG 50F18",
+            "Link": "https://www.chotot.com//mua-ban-quat-quan-go-vap-tp-ho-chi-minh/118876443.htm",
+            "Image URL": "https://cdn.chotot.com/uac2/1047042",
+            "Price": "900.000 đ",
+            "Location": "Tp Hồ Chí Minh"
+        }
+    ]
+}

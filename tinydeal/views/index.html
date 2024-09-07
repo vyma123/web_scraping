@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Data from JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #json-data {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        #json-data p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        #json-data img {
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #json-data hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dynamic Data from JSON</h1>
+    <div id="buttons"></div>
+    <div id="json-data"></div>
+
+    <script>
+        // Hàm để lấy dữ liệu JSON
+        async function fetchData() {
+            try {
+                const response = await fetch('/data/data.json');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+
+                const buttonsDiv = document.getElementById('buttons');
+                buttonsDiv.innerHTML = ''; 
+
+                const allButton = document.createElement('button');
+                allButton.textContent = 'All';
+                allButton.addEventListener('click', () => showAllLists(data.Items));
+                buttonsDiv.appendChild(allButton);
+
+                data.Items.forEach((itemGroup, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = itemGroup.Content || `Content ${index + 1}`;
+                    button.addEventListener('click', () => showList(itemGroup.List));
+                    buttonsDiv.appendChild(button);
+                });
+
+                showAllLists(data.Items);
+
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        // Hàm để hiển thị tất cả các danh sách mặc định với số thứ tự
+        function showAllLists(items) {
+            const jsonDataDiv = document.getElementById('json-data');
+            jsonDataDiv.innerHTML = ''; 
+
+            let itemIndex = 1; 
+
+            items.forEach(itemGroup => {
+                itemGroup.List.forEach(item => {
+                    jsonDataDiv.innerHTML += `
+                        <p>${itemIndex}. <a href="${item.Link}" target="_blank">${item.Title}</a></p>
+                        <img src="${item['Image URL']}" alt="${item.Title}" style="width:128px;height:128px;">
+                        <p><strong>Price:</strong> ${item.Price}</p>
+                        <p><strong>Location:</strong> ${item.Location}</p>
+                        <hr>
+                    `;
+                    itemIndex++; 
+                });
+            });
+        }
+
+        // Hàm để hiển thị danh sách các mục tương ứng khi nhấn vào nút
+        function showList(list) {
+            const jsonDataDiv = document.getElementById('json-data');
+            jsonDataDiv.innerHTML = ''; 
+
+            list.forEach((item, index) => {
+                jsonDataDiv.innerHTML += `
+                    <p>${index + 1}. <a href="${item.Link}" target="_blank">${item.Title}</a></p>
+                    <img src="${item['Image URL']}" alt="${item.Title}" style="width:128px;height:128px;">
+                    <p><strong>Price:</strong> ${item.Price}</p>
+                    <p><strong>Location:</strong> ${item.Location}</p>
+                    <hr>
+                `;
+            });
+        }
+
+        fetchData();
+    </script>
+</body>
+
+</html>
